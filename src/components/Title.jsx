@@ -1,7 +1,7 @@
-import "../styles/title.css"
+import "../styles/title.css";
 
 export default function Title() {
-  return (
-    <div className="title">My Tinirary</div>
-  )
+  const name = "My Tinirary";
+
+  return <div className="title">{name}</div>;
 }

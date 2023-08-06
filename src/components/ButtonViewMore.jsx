@@ -1,9 +1,10 @@
-import "../styles/buttonviewmore.css"
+import "../styles/buttonviewmore.css";
 
 export default function ButtonViewMore() {
+  const name = "View More";
   return (
     <div className="view-more">
-    <button>View More</button>
-  </div>
-  )
+      <button>{name}</button>
+    </div>
+  );
 }

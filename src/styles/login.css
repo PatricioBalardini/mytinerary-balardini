@@ -1,5 +1,6 @@
 .login {
-  width: 100%;
+  width: 50%;
+  flex-direction: column;
   display: flex;
   justify-content: center;
 }
@@ -16,4 +17,13 @@
   padding-right: 16%;
   border-radius: 5px;
   font-weight: bold;
+}
+
+.user-icono {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  justify-content: space-evenly;
 }
