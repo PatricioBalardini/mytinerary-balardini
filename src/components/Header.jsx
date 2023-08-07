@@ -1,6 +1,7 @@
 import Title from "./Title";
 import Login from "./Login";
 import ButtonsNav from "./ButtonsNav";
+import NavBar from "./NavBar";
 import "../styles/header.css";
 
 export default function Header() {
@@ -10,6 +11,7 @@ export default function Header() {
       <div className="header">
         <ButtonsNav />
         <Login />
+        <NavBar />
       </div>
     </header>
   );
