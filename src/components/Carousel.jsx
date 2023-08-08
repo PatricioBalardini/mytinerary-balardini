@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Arrow from "./Arrow";
 import Card from "./Card";
 import { useState } from "react";
@@ -30,7 +31,7 @@ const Carousel = ({ data }) => {
     <div className="silde" onClick={prev_slide}>
       <Arrow direction={"fa-solid fa-chevron-left"} />
       {data.slice(counter, counterTo).map((each) => (
-        <Card key={each.id} src={each.photo} alt={each.id} text={each.city} />
+        <Card key={each.id} src={each.photo} alt={each.id} text={each.city} id={each.id}/>
       ))}
       <Arrow direction={"fa-solid fa-chevron-right"} onClick={next_slide} />
     </div>

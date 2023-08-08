@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "../styles/buttonsnav.css";
 
 export default function ButtonsNav({ name }) {
