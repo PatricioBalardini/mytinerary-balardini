@@ -1,13 +1,11 @@
-import MainLayaout from "./layouts/NavLayaout";
-import Main from "./components/Main";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 import "/App.css";
 
 function App() {
   return (
     <div className="body">
-      <MainLayaout>
-        <Main />
-      </MainLayaout>
+      <RouterProvider router={router} />
     </div>
   );
 }

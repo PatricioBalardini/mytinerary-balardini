@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
+import { Link as Anchor } from "react-router-dom";
 import "../styles/card.css";
 
-export default function Card({ src, alt, text }) {
+export default function Card({ src, alt, text, id }) {
   return (
-    <div className="card">
+    <Anchor to={"/city/"+id} className="card">
       {" "}
       <img src={src} alt={alt}></img>
       <p className="title-silde">{text}</p>
-    </div>
+    </Anchor>
   );
 }
