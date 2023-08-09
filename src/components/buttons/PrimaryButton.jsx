@@ -1,6 +1,6 @@
-import "../styles/login.css";
+import "../styles/login.scss";
 
-export default function Login() {
+export default function PrimaryButton() {
   const name = "Login";
   return (
     <div className="login">

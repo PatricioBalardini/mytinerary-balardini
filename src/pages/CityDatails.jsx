@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import "../styles/citydetails.css";
 
 export default function CityDatails() {
   const { city_id } = useParams();
