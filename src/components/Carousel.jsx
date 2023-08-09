@@ -29,9 +29,16 @@ const Carousel = ({ data }) => {
   }
   return (
     <div className="silde" onClick={prev_slide}>
+      <div><h5>Popular Mytiniraries</h5></div>
       <Arrow direction={"fa-solid fa-chevron-left"} />
       {data.slice(counter, counterTo).map((each) => (
-        <Card key={each.id} src={each.photo} alt={each.id} text={each.city} id={each.id}/>
+        <Card
+          key={each.id}
+          src={each.photo}
+          alt={each.id}
+          text={each.city}
+          id={each.id}
+        />
       ))}
       <Arrow direction={"fa-solid fa-chevron-right"} onClick={next_slide} />
     </div>

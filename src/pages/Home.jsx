@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "../components/Carousel";
 import DescriptionMain from "../components/DescriptionMain";
+import "../styles/home.css";
 
 export default function Home() {
   const [show, setShow] = useState(true);
