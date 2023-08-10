@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Carousel from "../Carousel";
+import Carousel from "../carousel/Carousel";
 import PrimaryButton from "../buttons/PrimaryButton";
 import "./hero.scss";
 
@@ -18,10 +18,10 @@ export default function Hero() {
     <div className="container">
       <div className="hero">
         <div className="hero-left">
-          <h1>Find the perfect destination</h1>
+          <h1>Find the perfect destination for your trip</h1>
           <h3>
-            Find your perfect trip, designed by insiders who know and love their
-            cities.
+            Designed by insiders who know and love their cities, we have the
+            best posibilitiess for your travel.
           </h3>
           <PrimaryButton label="View More" />
         </div>
@@ -32,7 +32,12 @@ export default function Hero() {
         <input onClick={() => setShow(!show)} type="button" value="show" />
       )}
       {show ? <Carousel data={data} /> : <h1>View More</h1>} */}
-        <Carousel data={data} />
+        <div className="hero-rigth">
+          {/* <div className="hero-rigth--title">
+            <h3>Popular Choices</h3>
+          </div> */}
+          <Carousel data={data} />
+        </div>
       </div>
     </div>
   );

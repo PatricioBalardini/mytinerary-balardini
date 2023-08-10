@@ -1,13 +1,9 @@
-.ctn-icono {
-  display: flex;
-  align-items: center;
-  padding: 1%;
-}
 
-.button {
+.arrow {
+  display: flex;
+  align-items: flex-end;
   border: none;
   background: transparent;
-  font-size: 100%;
   color: #4f46e5;
   cursor: pointer;
 }
