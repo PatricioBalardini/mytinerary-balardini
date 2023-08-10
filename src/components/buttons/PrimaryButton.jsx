@@ -1,15 +1,10 @@
-import "../styles/login.scss";
+/* eslint-disable react/prop-types */
+import "./primary-button.scss";
 
-export default function PrimaryButton() {
-  const name = "Login";
+export default function PrimaryButton({ label = "primary", ...props }) {
   return (
-    <div className="login">
-      <button className="button">
-        <div className="user-icono">
-          <i className="fa-solid fa-user user-login"></i>
-        </div>
-        {name}
-      </button>
-    </div>
+    <button className="primary-button" {...props}>
+      {label}
+    </button>
   );
 }
