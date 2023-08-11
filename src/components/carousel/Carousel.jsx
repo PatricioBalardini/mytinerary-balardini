@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Arrow from "../Arrow";
+import Arrow from "../arrow/Arrow";
 import Card from "../card/Card";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import "./carousel.scss";

@@ -1,4 +1,4 @@
-import "../styles/arrow.css";
+import "./arrow.scss";
 
 // eslint-disable-next-line react/prop-types
 export default function Arrow({ direction, onClick }) {
