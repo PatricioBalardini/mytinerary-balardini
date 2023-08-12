@@ -1,6 +1,5 @@
 import Logo from "../logo/Logo";
 import NavBar from "./NavBar";
-// import MobileNavBar from "./MobileNavBar";
 import "./header.scss";
 
 export default function Header() {

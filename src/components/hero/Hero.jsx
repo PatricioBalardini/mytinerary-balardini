@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Carousel from "../carousel/Carousel";
 import PrimaryButton from "../buttons/PrimaryButton";
@@ -7,6 +8,7 @@ import "./hero.scss";
 export default function Hero() {
   // const [show, setShow] = useState(true);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios("/data.json")
@@ -23,9 +25,8 @@ export default function Hero() {
             Designed by insiders who know and love their cities, we have the
             best posibilitiess for your travel.
           </h3>
-          <PrimaryButton label="View More" />
+          <PrimaryButton label="View More" onClick={() => navigate("/login")} />
         </div>
-
         {/* {show ? (
         <input onClick={() => setShow(!show)} type="button" value="hide" />
       ) : (

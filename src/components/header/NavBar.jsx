@@ -22,7 +22,7 @@ export default function NavBar() {
       {links.map((link) => (
         <NavBarLink key={link.id} label={link.label} href={link.href} />
       ))}
-      <SecondaryButton label="Login" onClick={() => navigate("/sign-in")} />
+      <SecondaryButton label="Login" onClick={() => navigate("/login")} />
     </nav>
   );
 }
