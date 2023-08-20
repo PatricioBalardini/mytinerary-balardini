@@ -36,8 +36,14 @@ h1 {
   font-family: "Poppins", sans-serif;
 }
 
-h3 {
+h2 {
   font-size: 20px;
+  font-weight: 300;
+  line-height: auto;
+}
+
+h3 {
+  font-size: 18px;
   font-weight: 300;
   line-height: auto;
 }
@@ -47,6 +53,13 @@ button {
   border: none;
 }
 
-p, h1, h3 {
+input {
+  font-family: "Inter", sans-serif;
+}
+
+p,
+h1,
+h2,
+h3 {
   margin: 0;
 }
