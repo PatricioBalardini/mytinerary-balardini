@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Carousel from "../carousel/Carousel";
 import PrimaryButton from "../buttons/PrimaryButton";
+import axios from "axios";
+import apiUrl from "../../apiUrl";
 import "./hero.scss";
 
 export default function Hero() {
-  // const [show, setShow] = useState(true);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios("/data.json")
-      .then((res) => setData(res.data))
+    axios(apiUrl + "cities/carousel")
+      .then((res) => setData(res.data.data_carousel))
       .catch((err) => console.log(err));
   }, []);
 
@@ -27,12 +27,6 @@ export default function Hero() {
           </h3>
           <PrimaryButton label="View More" onClick={() => navigate("/login")} />
         </div>
-        {/* {show ? (
-        <input onClick={() => setShow(!show)} type="button" value="hide" />
-      ) : (
-        <input onClick={() => setShow(!show)} type="button" value="show" />
-      )}
-      {show ? <Carousel data={data} /> : <h1>View More</h1>} */}
         <div className="hero-rigth">
           {/* <div className="hero-rigth--title">
             <h3>Popular Choices</h3>
