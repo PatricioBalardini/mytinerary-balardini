@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import apiUrl from "../apiUrl";
 import CardCities from "../components/cards/CardCities";
@@ -6,40 +6,47 @@ import "../components/seeker/seeker.scss";
 
 export default function Cities() {
   const [cities, setCities] = useState([]);
-  const [reEffect, setReEffect] = useState(true);
-  const text = useRef();
+  const [filteredCities, setFilteredCities] = useState([]);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
-    axios(apiUrl + "cities?city=" + text.current.value)
-      .then((res) => setCities(res.data.response))
+    axios(`${apiUrl}/cities`)
+      .then((res) => {
+        setCities(res.data.response);
+        setFilteredCities(res.data.response);
+      })
       .catch((err) => console.log(err));
-  }, [reEffect]);
-  function handleFilter() {
-    console.log(text.current.value);
-    setReEffect(!reEffect);
-  }
+  }, []);
+
+  useEffect(() => {
+    if (search !== "") {
+      let filteredData = cities.filter(({ city }) =>
+        city.toLowerCase().includes(search)
+      );
+      setFilteredCities(filteredData.length ? filteredData : []);
+    } else {
+      setFilteredCities(cities);
+    }
+  }, [search, cities]);
+
   return (
     <div className="container">
       <div className="seeker">
         <input
           placeholder="Find your next destination..."
-          ref={text}
+          value={search}
           type="text"
-          name="text"
-          id="text"
-          onKeyUp={handleFilter}
+          name="city-search"
+          id="city-search"
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <div className="seeker-cities">
-          {" "}
-          {cities.map((destiny) => (
-            <p key={destiny._id}>{destiny.city}</p>
-          ))}
-        </div>
       </div>
-      <div className="seeker-card">
-        {cities.map((destiny) => (
+      <div className="seeker-cards">
+        {filteredCities.map((destiny) => (
           <CardCities key={destiny._id} card={destiny} />
         ))}
       </div>
+      {!filteredCities.length ? <p>No cities found</p> : null}
     </div>
   );
 }

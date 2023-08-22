@@ -5,18 +5,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
   animation: reveal-input 500ms ease-in-out;
+  gap: 64px;
 
-  &-cities {
-    display: none;
-  }
-
-  &-card {
+  &-cards {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 16px;
   }
 }
 
