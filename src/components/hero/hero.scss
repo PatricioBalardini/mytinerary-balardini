@@ -1,10 +1,9 @@
 .hero {
   width: 100%;
-  height: fit-content;
+  height: 672px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
 
   &-left,
   &-rigth {
@@ -15,14 +14,15 @@
   }
 
   &-left {
+    width: 500px;
     align-items: flex-start;
     justify-content: center;
-    gap: 30px;
+    gap: 32px;
   }
 
   &-rigth {
+    width: 672px;
     justify-content: center;
-    gap: 30px;
 
     &--title {
       height: 20px;
@@ -53,4 +53,19 @@
   width: 65%;
   display: flex;
   transition: transform 0.3s ease;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1280px) {
+  .hero {
+    height: auto;
+    flex-direction: column;
+    padding-top: 64px;
+    gap: 64px;
+    text-align: center;
+
+    &-left {
+      align-items: center;
+      
+    }
+  }
 }
