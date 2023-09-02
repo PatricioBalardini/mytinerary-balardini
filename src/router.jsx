@@ -7,6 +7,8 @@ import SignOut from "./pages/SignOut";
 import NotFounPage from "./pages/NotFounPage";
 import Login from "./pages/Login";
 import Cities from "./pages/Cities";
+import FormSignUp from "./pages/FormSignUp";
+import FormSignIn from "./pages/FormSignIn";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
       { path: "/sign-in", element: <SignIn /> },
       { path: "/sign-out", element: <SignOut /> },
       { path: "/login", element: <Login /> },
+      { path: "/auth/signup", element: <FormSignUp /> },
+      { path: "/auth/signin", element: <FormSignIn /> },
       { path: "/*", element: <NotFounPage /> },
     ],
   },
