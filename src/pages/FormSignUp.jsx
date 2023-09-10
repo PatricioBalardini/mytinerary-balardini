@@ -4,6 +4,7 @@ import apiUrl from "../apiUrl";
 import { Link } from "react-router-dom";
 
 export default function Form() {
+  
   const name = useRef();
   const lastName = useRef();
   const country = useRef();
@@ -21,7 +22,7 @@ export default function Form() {
         mail: mail.current.value,
         password: password.current.value,
       };
-      await axios.post(apiUrl + "users/signup", data);
+      await axios.post(apiUrl + "/users/signup", data);
       console.log(data);
     } catch (error) {
       console.log(error);

@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import apiUrl from "../apiUrl";
-import CardCities from "../components/cards/CardCities";
+import { useSelector, useDispatch } from "react-redux";
+import cityActions from "../redux/actions/citiesActions";
+import Card from "../components/card/Card";
 import "../components/seeker/seeker.scss";
 
+const { fetchCities } = cityActions;
+
 export default function Cities() {
-  const [cities, setCities] = useState([]);
+  const cities = useSelector((store) => store.cities.cities);
   const [filteredCities, setFilteredCities] = useState([]);
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios(`${apiUrl}/cities`)
-      .then((res) => {
-        setCities(res.data.response);
-        setFilteredCities(res.data.response);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    dispatch(fetchCities());
+  }, [dispatch]);
 
   useEffect(() => {
     if (search !== "") {
@@ -50,7 +48,7 @@ export default function Cities() {
       </div>
       <div className="seeker-cards">
         {filteredCities.map((destiny) => (
-          <CardCities key={destiny._id} card={destiny} />
+          <Card key={destiny._id} card={destiny} />
         ))}
       </div>
       {!filteredCities.length ? <p>No cities found</p> : null}
