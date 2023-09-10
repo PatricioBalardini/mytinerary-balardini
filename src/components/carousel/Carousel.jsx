@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Arrow from "../arrow/Arrow";
-import CardHome from "../cards/CardHome";
+import Card from "../card/Card";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import "./carousel.scss";
 
@@ -41,7 +41,7 @@ const Carousel = ({ data }) => {
       <Arrow direction={"fa-solid fa-chevron-left"} />
       <div className="carousel-list">
         {data.slice(counter, counterTo).map((destiny) => (
-          <CardHome key={destiny._id} card={destiny} />
+          <Card key={destiny._id} card={destiny} />
         ))}
       </div>
       <Arrow

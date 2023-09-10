@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Carousel from "../carousel/Carousel";
 import PrimaryButton from "../buttons/PrimaryButton";
-import axios from "axios";
-import apiUrl from "../../apiUrl";
+import citiesActions from "../../redux/actions/citiesActions";
 import "./hero.scss";
 
-export default function Hero() {
-  const [data, setData] = useState([]);
-  const navigate = useNavigate();
+const { fetchCitiesCarousel } = citiesActions;
 
+export default function Hero() {
+  const navigate = useNavigate();
+  const carousel = useSelector((store) => store.cities.carousel);
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios(apiUrl + "cities/carousel")
-      .then((res) => setData(res.data.data_carousel))
-      .catch((err) => console.log(err));
-  }, []);
+    if (carousel.length === 0) {
+      dispatch(fetchCitiesCarousel());
+    }
+  }, [carousel.length, dispatch]);
 
   return (
     <div className="container">
@@ -31,7 +33,7 @@ export default function Hero() {
           {/* <div className="hero-rigth--title">
             <h3>Popular Choices</h3>
           </div> */}
-          <Carousel data={data} />
+          <Carousel data={carousel} />
         </div>
       </div>
     </div>
