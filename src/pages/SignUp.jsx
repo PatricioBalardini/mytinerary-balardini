@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import userActions from "../redux/actions/userActions";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import { useNavigate } from "react-router-dom";
 import "./sign-up.scss";
 
 const { readUsers } = userActions;
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const name = useRef("");
   const lastName = useRef("");
   const country = useRef("");
@@ -22,7 +25,8 @@ export default function SignUp() {
   useEffect(() => {
     dispatch(readUsers());
   }, [dispatch, reload]);
-  async function handleSignUp() {
+  async function handleSignUp(evt) {
+    evt.preventDefault();
     try {
       let data = {
         name: name.current.value,
@@ -35,7 +39,11 @@ export default function SignUp() {
         data.photo = photo.current.value;
       }
       await axios.post(`${apiUrl}/auth/register`, data);
+
       setReload(!reload);
+
+      navigate("/sign-in");
+
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -43,7 +51,7 @@ export default function SignUp() {
   }
   return (
     <div className="sign-up-wrapper">
-      <form className="sign-up">
+      <form onSubmit={handleSignUp} className="sign-up">
         <h2>Sign Up</h2>
         <input
           ref={name}
@@ -100,7 +108,7 @@ export default function SignUp() {
           placeholder="Type Password"
         />
 
-        <PrimaryButton label="Sign Up" onClick={handleSignUp} />
+        <PrimaryButton label="Sign Up" type="submit" />
 
         <p>
           Already have an account?{" "}

@@ -15,7 +15,8 @@ export default function SignIn() {
   const passwordSignIn = useRef("");
   const dispatch = useDispatch();
 
-  function handleSignIn() {
+  function handleSignIn(evt) {
+    evt.preventDefault();
     let data = {
       mail: mailSignIn.current.value,
       password: passwordSignIn.current.value,
@@ -46,7 +47,7 @@ export default function SignIn() {
   console.log(user);
   return (
     <div className="sign-in-wrapper">
-      <form className="sign-in">
+      <form onSubmit={handleSignIn} className="sign-in">
         <h2>Sign In</h2>
         <input
           ref={mailSignIn}
@@ -66,11 +67,9 @@ export default function SignIn() {
           defaultValue=""
           placeholder="Type Password"
         />
-        <PrimaryButton label="Sign In" onClick={handleSignIn} />
+        <PrimaryButton label="Sign In" type="submit" />
         <p>
-          <Link className="" to="/sign-up">
-            Sign up!
-          </Link>
+          <Link to="/sign-up">Sign up!</Link>
         </p>
       </form>
     </div>
