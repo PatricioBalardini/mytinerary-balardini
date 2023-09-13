@@ -16,6 +16,16 @@ header {
   display: flex;
   align-items: center;
   gap: 32px;
+
+  &-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button {
+      cursor: pointer;
+    }
+  }
 }
 
 .navbar-link {
@@ -28,3 +38,5 @@ header {
 .navbar-link a:visited {
   color: #1c1c1c;
 }
+
+

@@ -53,7 +53,7 @@ button {
   border: none;
 }
 
-input {
+input, form {
   font-family: "Inter", sans-serif;
 }
 
