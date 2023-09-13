@@ -51,7 +51,7 @@ export default function Cities() {
           <Card key={destiny._id} card={destiny} />
         ))}
       </div>
-      {!filteredCities.length ? <p>No cities found</p> : null}
+      {!filteredCities.length ? <p></p> : null}
     </div>
   );
 }

@@ -44,10 +44,18 @@
     gap: 22px;
   }
 
-  &--itineraries{
+  &--itineraries {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
   }
 }

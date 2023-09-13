@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import userActions from "../redux/actions/userActions";
 import Swal from "sweetalert2";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+
+import "./sign-in.scss";
 
 const { signIn } = userActions;
 
@@ -27,7 +30,6 @@ export default function SignIn() {
           });
           navigate("/");
         } else if (res.payload.messages.length > 0) {
-          //let html = res.payload.messages.join('<br>')
           let html = res.payload.messages
             .map((each) => `<p>${each}</p>`)
             .join("");
@@ -43,37 +45,34 @@ export default function SignIn() {
   let user = useSelector((store) => store);
   console.log(user);
   return (
-    <form className="">
-      <h1 className="">Sign In!</h1>
-      <input
-        ref={mailSignIn}
-        type="text"
-        className=""
-        name="mailSignIn"
-        id="mailSignIn"
-        defaultValue=""
-        placeholder="Type Mail"
-      />
-      <input
-        ref={passwordSignIn}
-        type="password"
-        className=""
-        name="passwordSignIn"
-        id="passwordSignIn"
-        defaultValue=""
-        placeholder="Type Password"
-      />
-      <input
-        type="button"
-        className=""
-        value="Sign In!"
-        onClick={handleSignIn}
-      />
-      <p>
-        <Link className="" to="/sign-up">
-          Sign up!
-        </Link>
-      </p>
-    </form>
+    <div className="sign-in-wrapper">
+      <form className="sign-in">
+        <h2>Sign In</h2>
+        <input
+          ref={mailSignIn}
+          type="text"
+          className=""
+          name="mailSignIn"
+          id="mailSignIn"
+          defaultValue=""
+          placeholder="Type Mail"
+        />
+        <input
+          ref={passwordSignIn}
+          type="password"
+          className=""
+          name="passwordSignIn"
+          id="passwordSignIn"
+          defaultValue=""
+          placeholder="Type Password"
+        />
+        <PrimaryButton label="Sign In" onClick={handleSignIn} />
+        <p>
+          <Link className="" to="/sign-up">
+            Sign up!
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 }

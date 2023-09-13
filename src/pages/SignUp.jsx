@@ -5,6 +5,8 @@ import apiUrl from "../apiUrl";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import userActions from "../redux/actions/userActions";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import "./sign-up.scss";
 
 const { readUsers } = userActions;
 
@@ -40,9 +42,9 @@ export default function SignUp() {
     }
   }
   return (
-    <div className="">
-      <form className="">
-        <h1 className="">Sign Up!</h1>
+    <div className="sign-up-wrapper">
+      <form className="sign-up">
+        <h2>Sign Up</h2>
         <input
           ref={name}
           type="text"
@@ -97,12 +99,9 @@ export default function SignUp() {
           defaultValue=""
           placeholder="Type Password"
         />
-        <input
-          type="button"
-          className=""
-          value="Sign Up!"
-          onClick={handleSignUp}
-        />
+
+        <PrimaryButton label="Sign Up" onClick={handleSignUp} />
+
         <p>
           Already have an account?{" "}
           <Link className="" to="/sign-in">

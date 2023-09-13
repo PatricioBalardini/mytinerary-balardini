@@ -45,9 +45,11 @@ export default function CityDetails() {
         </div>
         <div className="city-details--itineraries">
           <h3>Itineraries</h3>
-          {itineraries.map((itinerarie) => (
-            <ItinerarieCard key={itinerarie._id} itinerarie={itinerarie} />
-          ))}
+          <div className="city-details--itineraries-list">
+            {itineraries.map((itinerarie) => (
+              <ItinerarieCard key={itinerarie._id} itinerarie={itinerarie} />
+            ))}
+          </div>
         </div>
       </section>
     </div>
