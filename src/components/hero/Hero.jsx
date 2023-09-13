@@ -27,7 +27,7 @@ export default function Hero() {
             Designed by insiders who know and love their cities, we have the
             best posibilitiess for your travel.
           </h3>
-          <PrimaryButton label="View More" onClick={() => navigate("/login")} />
+          <PrimaryButton label="View More" onClick={() => navigate("/cities")} />
         </div>
         <div className="hero-rigth">
           {/* <div className="hero-rigth--title">

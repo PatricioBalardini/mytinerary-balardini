@@ -14,10 +14,10 @@ export default function NavBar() {
           <Anchor to="/cities" className="cities">
             Cities
           </Anchor>
-          <Anchor to="/signin" className="sign-in">
+          <Anchor to="/signIn" className="sign-in">
             Sign In
           </Anchor>
-          <Anchor to="/signup" className="sign-up">
+          <Anchor to="/signOut" className="sign-up">
             Sign Up
           </Anchor>
         </div>
