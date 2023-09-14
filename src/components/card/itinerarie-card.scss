@@ -1,6 +1,5 @@
 .itinerarie-card {
   width: 500px;
-  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,19 +30,18 @@
 
   &--footer {
     width: 100%;
-    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    p,
-    h3,
-    h4 {
-      color: white;
-    }
-
     h3 {
       font-weight: 700;
+    }
+
+    &-likes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -59,8 +57,7 @@
       gap: 8px;
 
       label {
-
-      font-weight: bold;
+        font-weight: bold;
       }
     }
   }

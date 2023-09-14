@@ -27,10 +27,6 @@ export default function ItinerarieCard({ itinerarie }) {
       {expand ? (
         <div className="itinerarie-card--expand">
           <div className="itinerarie-card--expand-item">
-            <label>User:</label>
-            <p>{itinerarie.user}</p>
-          </div>
-          <div className="itinerarie-card--expand-item">
             <label>Tags:</label>
             <p>{itinerarie.tags}</p>
           </div>

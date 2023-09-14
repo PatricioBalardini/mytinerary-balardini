@@ -56,7 +56,7 @@ export default function SignIn() {
           name="mailSignIn"
           id="mailSignIn"
           defaultValue=""
-          placeholder="Type Mail"
+          placeholder="Email"
         />
         <input
           ref={passwordSignIn}
@@ -65,11 +65,12 @@ export default function SignIn() {
           name="passwordSignIn"
           id="passwordSignIn"
           defaultValue=""
-          placeholder="Type Password"
+          placeholder="Password"
         />
         <PrimaryButton label="Sign In" type="submit" />
         <p>
-          <Link to="/sign-up">Sign up!</Link>
+          Don't have an account?
+          <Link to="/sign-up"> Sign up</Link>
         </p>
       </form>
     </div>

@@ -11,7 +11,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* letter-spacing: 0.5px; */
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -31,7 +31,6 @@ a {
 
 h1 {
   font-size: 48px;
-  /* line-height: 54px; */
   line-height: 60px;
   font-family: "Poppins", sans-serif;
 }
@@ -53,7 +52,8 @@ button {
   border: none;
 }
 
-input, form {
+input,
+form {
   font-family: "Inter", sans-serif;
 }
 

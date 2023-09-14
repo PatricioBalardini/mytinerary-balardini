@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { BiSearch } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import cityActions from "../redux/actions/citiesActions";
 import Card from "../components/card/Card";
-import "../components/seeker/seeker.scss";
+import "./cities.scss";
 
 const { fetchCities } = cityActions;
 
@@ -29,29 +30,27 @@ export default function Cities() {
 
   return (
     <div className="container">
-      {/* <div className="city-imgs">
-        <div></div>
-      </div> */}
-      <div className="seeker">
-        <div className="seeker-container">
+      <div className="cities">
+        {" "}
+        <div className="seeker">
+          <BiSearch />
           <input
             className="seeker-input"
-            placeholder="Find your next destination..."
+            placeholder="Search your city..."
             value={search}
             type="text"
             name="city-search"
             id="city-search"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <i className="seeker-glass fa-solid fa-magnifying-glass"></i>
         </div>
+        <div className="seeker-cards">
+          {filteredCities.map((destiny) => (
+            <Card key={destiny._id} card={destiny} />
+          ))}
+        </div>
+        {!filteredCities.length ? <p></p> : null}
       </div>
-      <div className="seeker-cards">
-        {filteredCities.map((destiny) => (
-          <Card key={destiny._id} card={destiny} />
-        ))}
-      </div>
-      {!filteredCities.length ? <p></p> : null}
     </div>
   );
 }

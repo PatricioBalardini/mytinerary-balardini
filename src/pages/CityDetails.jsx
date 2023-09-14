@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cityActions from "../redux/actions/citiesActions";
 import PrimaryButton from "../components/buttons/PrimaryButton";
@@ -14,6 +14,7 @@ export default function CityDetails() {
   const { id } = useParams();
   const [itineraries, setItineraries] = useState([]);
   const dispatch = useDispatch();
+  const itinerariesRef = useRef(null);
 
   useEffect(() => {
     const fechCityItineraries = async () => {
@@ -29,6 +30,12 @@ export default function CityDetails() {
     fechCityItineraries();
   }, [dispatch, id]);
 
+  const handleViewItineraries = () => {
+    if (itinerariesRef.current) {
+      itinerariesRef.current.scrollIntoView({ behaviour: "smooth" });
+    }
+  };
+
   const city = useSelector((store) => store.cities.city);
   console.log(itineraries);
 
@@ -41,10 +48,13 @@ export default function CityDetails() {
         </div>
         <div className="city-details--description">
           <p>{city.description}</p>
-          <PrimaryButton label="View Itineraries" />
+          <PrimaryButton
+            label="View Itineraries"
+            onClick={handleViewItineraries}
+          />
         </div>
-        <div className="city-details--itineraries">
-          <h3>Itineraries</h3>
+        <div className="city-details--itineraries" ref={itinerariesRef}>
+          <h2>Itineraries</h2>
           <div className="city-details--itineraries-list">
             {itineraries.map((itinerarie) => (
               <ItinerarieCard key={itinerarie._id} itinerarie={itinerarie} />

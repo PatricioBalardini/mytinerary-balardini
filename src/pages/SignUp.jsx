@@ -22,9 +22,11 @@ export default function SignUp() {
   const password = useRef("");
   const [reload, setReload] = useState(false);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(readUsers());
   }, [dispatch, reload]);
+
   async function handleSignUp(evt) {
     evt.preventDefault();
     try {
@@ -60,7 +62,7 @@ export default function SignUp() {
           name="name"
           id="name"
           defaultValue=""
-          placeholder="Type Name"
+          placeholder="Name"
         />
         <input
           ref={lastName}
@@ -69,7 +71,7 @@ export default function SignUp() {
           name="lastName"
           id="lastName"
           defaultValue=""
-          placeholder="Type Last Name"
+          placeholder="Last Name"
         />
         <input
           ref={country}
@@ -78,7 +80,7 @@ export default function SignUp() {
           name="country"
           id="country"
           defaultValue=""
-          placeholder="Type Country"
+          placeholder="Country"
         />
         <input
           ref={photo}
@@ -87,7 +89,7 @@ export default function SignUp() {
           name="photo"
           id="photo"
           defaultValue=""
-          placeholder="Type Photo"
+          placeholder="Photo"
         />
         <input
           ref={mail}
@@ -96,7 +98,7 @@ export default function SignUp() {
           name="mail"
           id="mail"
           defaultValue=""
-          placeholder="Type Mail"
+          placeholder="Email"
         />
         <input
           ref={password}
@@ -105,15 +107,13 @@ export default function SignUp() {
           name="password"
           id="password"
           defaultValue=""
-          placeholder="Type Password"
+          placeholder="Password"
         />
-
         <PrimaryButton label="Sign Up" type="submit" />
-
         <p>
           Already have an account?{" "}
           <Link className="" to="/sign-in">
-            Sign in!
+            Sign in
           </Link>
         </p>
       </form>
